@@ -1,1 +1,1 @@
-# This package contains helper functions for rOpenSci repository/literature packages.
+This package will shortly become popualted with helper functions for ropensci database and literature packages.
