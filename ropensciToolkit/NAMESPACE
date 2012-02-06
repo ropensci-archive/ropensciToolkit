@@ -1,0 +1,2 @@
+export(ropensci_auth)
+export(ropensci_key)
