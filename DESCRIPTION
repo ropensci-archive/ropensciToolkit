@@ -5,5 +5,9 @@ Version: 1.0
 Date: 2012-02-06
 Author: Karthik Ram, Scott Chamberlain, Carl Boettiger
 Maintainer: Karthik Ram <kram@berkeley.edu>
-Description: Handles function common to packages in the ropensci suite. See http://ropensci.org for more information
+Description: Handles function common to packages in the ropensci suite. See
+    http://ropensci.org for more information
 License: BSD
+Collate:
+    'ropensciToolkit-internal.R'
+    'ro_auth.r'
