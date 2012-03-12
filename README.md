@@ -1,1 +1,0 @@
-This package will shortly become popualted with helper functions for ropensci database and literature packages.
