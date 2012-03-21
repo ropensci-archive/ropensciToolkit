@@ -10,20 +10,21 @@
 #'@examples \dontrun{
 #'
 #'}
-ro_save <- function(filename = default_name(obj),path=NULL,format,...)
-{
- if (!inherits(obj, "ropensci"))
+ro_save <- function(filename = default_name(obj), 
+    path = NULL, format, ...) {
+    if (!inherits(obj, "ropensci")) 
         stop("Object should be of class ropensci")
-        if(!missing(format))
-        {
-         if(format=="JSON") {}
-         if(format=="df") {}
-         if(format=="sql") { stop("This method has not yet been implemented")}
+    if (!missing(format)) {
+        if (format == "JSON") {
         }
-         if (!is.null(path))
-         {
-          filename <- file.path(path, filename)
-         }
-
+        if (format == "df") {
+        }
+        if (format == "sql") {
+            stop("This method has not yet been implemented")
+        }
+    }
+    if (!is.null(path)) {
+        filename <- file.path(path, filename)
+    }
     invisible()
-}
+} 
