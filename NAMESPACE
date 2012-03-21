@@ -1,0 +1,7 @@
+export(plot.ropensci)
+export(print.ropensci)
+export(ro_save)
+export(summary.ropensci)
+S3method(plot,ropensci)
+S3method(print,ropensci)
+S3method(summary,ropensci)

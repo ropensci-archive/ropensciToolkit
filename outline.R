@@ -1,6 +1,4 @@
-library(ggplot2)
-library(stringr)
-library(OHaiharvester)
+# General notes/outline on how this package will ultimately work.
 
 # Usage
 # result <-list(...)

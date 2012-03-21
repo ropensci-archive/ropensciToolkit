@@ -1,0 +1,22 @@
+Package: ropensciToolkit
+Type: Package
+Title: Helper functions for rOpenSci suite of packages
+Version: 0.1
+License: CC0
+Date: 2012-03-02
+Authors@R: c(person("Karthik", "Ram", role = c("aut", "cre"),
+    email = "karthik.ram+R@gmail.com"),
+    person("Carl", "Boettiger", role = "aut",
+    email = "cboettig@gmail.com"),
+    person("Scott", "Chamberlain", role = "aut",
+    email = "myrmecocystus@gmail.com"))
+Maintainer: Karthik Ram <karthik.ram@gmail.com>
+URL: http://www.github.com/ropensci/rdryad
+Description: Helper functions including generic methods for packages that
+    connect to ecological data/literature via R. See http://ropensci.org for
+    more information.
+Collate:
+    'plot.ropensci.r'
+    'print.ropensci.r'
+    'ro_save.r'
+    'summary.ropensci.r'
