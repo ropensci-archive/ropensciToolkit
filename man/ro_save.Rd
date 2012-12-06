@@ -15,7 +15,7 @@
 
   \item{format}{format in which data needs to be saved.
   Currently only flat text but in future there will be
-  support for databases}
+  support for databases, JSON, among others.}
 
   \item{...}{Internal use}
 }

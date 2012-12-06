@@ -3,9 +3,9 @@
 \alias{print.ropensci}
 \alias{summary.ropensci}
 \usage{
-  plot.ropensci(dset, verbose = FALSE)
+  plot.ropensci(ro_object, verbose = FALSE)
 
-  print.ropensci(dset, verbose = FALSE)
+  print.ropensci(ro_object, verbose = FALSE)
 
   summary.ropensci(dset, verbose = FALSE)
 }
