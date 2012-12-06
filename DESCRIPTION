@@ -9,14 +9,21 @@ Authors@R: c(person("Karthik", "Ram", role = c("aut", "cre"),
     person("Carl", "Boettiger", role = "aut",
     email = "cboettig@gmail.com"),
     person("Scott", "Chamberlain", role = "aut",
-    email = "myrmecocystus@gmail.com"))
+    email = "myrmecocystus@gmail.com"),
+    person("Edmund", "Hart", role = "aut",
+    email = "ehart@zoo.ubc.ca"))
 Maintainer: Karthik Ram <karthik.ram@gmail.com>
-URL: http://www.github.com/ropensci/rdryad
+URL: http://www.github.com/ropensci/rOpenSciToolkit
 Description: Helper functions including generic methods for packages that
     connect to ecological data/literature via R. See http://ropensci.org for
     more information.
+Depends:
+    R.utils,
+    plyr
 Collate:
     'plot.ropensci.r'
     'print.ropensci.r'
     'ro_save.r'
     'summary.ropensci.r'
+    'help.R'
+    'api_status.R'
