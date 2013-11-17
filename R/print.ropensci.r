@@ -1,24 +1,43 @@
-#' @return \code{NULL}
+#' Print brief summary of output
+#' 
+#' @examples \dontrun{
+#' library(httr)
+#' url <- "http://api.plos.org/search?q=author:Ethan White&rows=1&wt=json"
+#' out <- GET(url)
+#' data <- content(out)
+#' somedata <- data$response$docs[[1]]
+#' dat <- as_ropenci(out, somedata)
+#' print(dat)
+#' }
 #' @export
 #' @rdname ropensci
 #' @S3method print ropensci
-print.ropensci <- function(ro_object, verbose = FALSE) {
-    ro_object$call <- ifelse(is.null(ro_object$call), "undefined call",
-        ro_object$call)
-    ro_object$source <- ifelse(is.null(ro_object$source), "undefined call",
-        ro_object$source)
-    cat("Results from ", ro_object$call, "to", ro_object$source,
-        "\n")
-    if (is.null(ro_object$format)) {
-        ro_object$format <- "Undefined"
+print.ropensci <- function(d, verbose = FALSE) 
+{
+  host <- parse_url(d$call)$hostname
+  d$call <- ifelse(is.null(d$call), "undefined call", d$call)
+  format <- class(d$data)
+  host <- ifelse(is.null(host), "undefined call", host)
+  query <- parse_url(d$call)$query
+  
+  cat("Call status  : ", d$status_code, "\n")
+  cat("Results from : ", host, "\n")
+  cat("Date/time    : ", d$meta$headers$date, "\n")
+  cat("Data format  : ", format, "\n")
+  cat("Queried      : ", "\n", foo(parse_url(d$call)$query), "\n")
+  
+  if(inherits(d$data, "data.frame")){
+    if(dim(d$data)[1] > 10){
+      cat(sprintf("First 6 rows of %s:", dim(d$data)[1]), "\n")
     }
-    cat("Format:", ro_object$format, "\n")
-    if (!empty(ro_object$data)) {
-        head(data)
-        if (dim(data)[1] > 10)
-            cat("Printed first 10 rows of ", dim(data)[1], "\n")
-    }
-    if (empty(ro_object$data)) {
-        cat("No data in object", "\n")
-    }
+    head(d$data)
+  }
+}
+
+foo <- function(x){
+  out <- list()
+  for(i in seq_along(x)){
+    out[[i]] <- paste0(names(x[i]), " = ", x[[i]], collapse="")
+  }
+  paste(out, collapse=" \n ")
 }
