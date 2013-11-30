@@ -4,9 +4,8 @@
 #' library(httr)
 #' url <- "http://api.plos.org/search?q=author:Ethan White&rows=1&wt=json"
 #' out <- GET(url)
-#' data <- content(out)
-#' somedata <- data$response$docs[[1]]
-#' dat <- as_ropenci(out, somedata)
+#' somedata <- content(out)$response$docs[[1]]
+#' dat <- as_ropensci(out, somedata)
 #' print(dat)
 #' }
 #' @export
@@ -20,7 +19,7 @@ print.ropensci <- function(d, verbose = FALSE)
   host <- ifelse(is.null(host), "undefined call", host)
   query <- parse_url(d$call)$query
   
-  cat("Call status  : ", d$status_code, "\n")
+  cat("Call status  : ", d$status_message, "\n")
   cat("Results from : ", host, "\n")
   cat("Date/time    : ", d$meta$headers$date, "\n")
   cat("Data format  : ", format, "\n")
@@ -30,7 +29,7 @@ print.ropensci <- function(d, verbose = FALSE)
     if(dim(d$data)[1] > 10){
       cat(sprintf("First 6 rows of %s:", dim(d$data)[1]), "\n")
     }
-    head(d$data)
+    print( head(d$data) )
   }
 }
 

@@ -3,7 +3,7 @@ Type: Package
 Title: Helper functions for rOpenSci suite of packages
 Version: 0.1
 License: CC0
-Date: 2013-11-16
+Date: 2013-11-29
 Authors@R: c(person("Karthik", "Ram", role = c("aut", "cre"),
     email = "karthik.ram+R@gmail.com"),
     person("Carl", "Boettiger", role = "aut",
@@ -17,7 +17,7 @@ URL: http://www.github.com/ropensci/rOpenSciToolkit
 Description: Helper functions including generic methods for packages that
     connect to ecological data/literature via R. See http://ropensci.org for
     more information.
-Depends:
+Imports:
     R.utils,
     plyr,
     httr

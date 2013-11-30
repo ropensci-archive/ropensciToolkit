@@ -3,20 +3,21 @@
 #' @import httr
 #' @param httr_res httr response object
 #' @param data Data object from parsing, if any, defaults to NULL if none passed.
+#' @export
 #' @examples \dontrun{
 #' library(httr)
 #' url <- "http://api.plos.org/search?q=author:Ethan White&rows=1&wt=json"
 #' out <- GET(url)
 #' data <- content(out)
 #' somedata <- data$response$docs[[1]]
-#' as_ropenci(out, somedata)
+#' as_ropensci(out, somedata)
 #' 
 #' # or assign output object to some class
 #' class(somedata) <- "newobj"
-#' as_ropenci(out, somedata)
+#' as_ropensci(out, somedata)
 #' 
 #' # get information on a call
-#' dat <- as_ropenci(out, somedata)
+#' dat <- as_ropensci(out, somedata)
 #' dat$data # the data ouput  
 #' dat$status_code # the HTTP status
 #' dat$status_message # a more meaningful HTTP status message
@@ -30,7 +31,7 @@
 #' pint(dat)
 #' dat
 #' }
-as_ropenci <- function(httr_res, data=NULL)
+as_ropensci <- function(httr_res, data=NULL)
 {
   tmp <- list(data = data, 
               status_code = httr_res$status_code,
