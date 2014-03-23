@@ -10,6 +10,7 @@
 #' }
 #' @export
 #' @rdname ropensci
+
 print.ropensci <- function(x, ...) 
 {
   host <- parse_url(x$call)$hostname

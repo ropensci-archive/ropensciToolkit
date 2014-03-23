@@ -93,5 +93,4 @@ ro_save <- function(filename = default_name(obj),path=NULL,format,...)
 
 #2 . See all Methods in a class
 
-showMethods(class="ropensci")
-
+methods(class="ropensci")

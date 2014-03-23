@@ -7,6 +7,7 @@
 #' @keywords save
 #' @return nothing
 #' @export
+
 ro_save <- function(filename, path = NULL, format, ...) {
 # ro_save <- function(filename = default_name(obj),
     if (!inherits(obj, "ropensci"))

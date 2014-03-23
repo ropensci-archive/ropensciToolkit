@@ -6,7 +6,7 @@
 #' @export
 #' @examples \dontrun{
 #' library(httr)
-#' url <- "http://api.plos.org/search?q=author:Ethan White&rows=1&wt=json"
+#' url <- "http://api.plos.org/search?q=ecology&rows=1&wt=json"
 #' out <- GET(url)
 #' data <- content(out)
 #' somedata <- data$response$docs[[1]]
@@ -14,10 +14,15 @@
 #' 
 #' # or assign output object to some class
 #' class(somedata) <- "newobj"
-#' as_ropensci(out, somedata)
+#' res <- as_ropensci(out, somedata)
+#' 
+#' print.newobj <- function(x, ...){
+#'    cat(sprintf("Hello %s", length(x)))
+#' }
 #' 
 #' # get information on a call
 #' dat <- as_ropensci(out, somedata)
+#' attributes(res)
 #' dat$data # the data ouput  
 #' dat$status_code # the HTTP status
 #' dat$status_message # a more meaningful HTTP status message
@@ -28,16 +33,21 @@
 #' dat$meta$config # any configuration settings passed
 #' 
 #' # Pass output to print command, same as not using print
-#' pint(dat)
+#' print(dat)
 #' dat
+#' 
+#' ## data.frame
+#' 
 #' }
+
 as_ropensci <- function(httr_res, data=NULL)
 {
-  tmp <- list(data = data, 
+  tmp <- list(data = data,
               status_code = httr_res$status_code,
               status_message = http_status(httr_res)$message,
               call = httr_res$url, 
               meta = httr_res[c('handle','headers','cookies','config')])
-  class(tmp) <- 'ropensci'
-  tmp
+  currentclass <- class(data)
+  class(tmp) <- c('ropensci', currentclass)
+  return( tmp )
 }
