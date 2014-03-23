@@ -7,11 +7,8 @@
 #' @keywords save
 #' @return nothing
 #' @export
-#' @examples \dontrun{
-#'
-#'}
-ro_save <- function(filename = default_name(obj),
-    path = NULL, format, ...) {
+ro_save <- function(filename, path = NULL, format, ...) {
+# ro_save <- function(filename = default_name(obj),
     if (!inherits(obj, "ropensci"))
         stop("Object should be of class ropensci")
     if (!missing(format)) {

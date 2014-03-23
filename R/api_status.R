@@ -3,6 +3,8 @@ suppressPackageStartupMessages(library(R.utils))
 
 #'Function to test whether an API is down and if so, throw an error.
 #'
+#'
+#' @importFrom R.utils evalWithTimeout
 #' @param test_fn The function call to test
 #' @param  tlimit = 120 A timeout in seconds
 #' @return logical

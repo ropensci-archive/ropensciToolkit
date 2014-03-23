@@ -1,5 +1,7 @@
 #' Summary of an ropensci class object
 #' 
+#' @param object Input
+#' @import httr methods
 #' @examples \dontrun{
 #' library(httr)
 #' url <- "http://api.plos.org/search?q=author:Ethan White&rows=1&wt=json"
@@ -11,26 +13,25 @@
 #' }
 #' @export
 #' @rdname ropensci
-#' @S3method summary ropensci
-summary.ropensci <- function(d, verbose = FALSE) 
+summary.ropensci <- function(object, ...) 
 {
-  host <- parse_url(d$call)$hostname
-  d$call <- ifelse(is.null(d$call), "undefined call", d$call)
-  format <- class(d$data)
+  host <- parse_url(object$call)$hostname
+  object$call <- ifelse(is.null(object$call), "undefined call", object$call)
+  format <- class(object$data)
   host <- ifelse(is.null(host), "undefined call", host)
-  query <- parse_url(d$call)$query
+  query <- parse_url(object$call)$query
   
-  cat("Call status  : ", d$status_message, "\n")
+  cat("Call status  : ", object$status_message, "\n")
   cat("Results from : ", host, "\n")
-  cat("Date/time    : ", d$meta$headers$date, "\n")
+  cat("Date/time    : ", object$meta$headers$date, "\n")
   cat("Data format  : ", format, "\n")
-  cat("Queried      : ", "\n", foo(parse_url(d$call)$query), "\n")
+  cat("Queried      : ", "\n", foo(parse_url(object$call)$query), "\n")
   
-  if(inherits(d$data, "data.frame")){
-    if(dim(d$data)[1] > 10){
-      cat(sprintf("Summary of data.frame:", dim(d$data)[1]), "\n")
+  if(inherits(object$data, "data.frame")){
+    if(dim(object$data)[1] > 10){
+      cat(sprintf("Summary of data.frame:", dim(object$data)[1]), "\n")
     }
-    summary( head(d$data) )
+    summary( head(object$data) )
   }
 }
 # List the call (search terms)
